@@ -81,7 +81,7 @@ The third idea came from extensive googling "mtd join/merge/concatenate", since 
 };
 ```
 
-Just in case, I still made sure to compile a slim image of OpenWrt (Removed: PPPoE, IPv6, IPv6 DHCP, FOU/GUE over IPv6, IPv6 VTI, Appletalk, LuCI over HTTPS), that fits into the factory partition. AFAIK, sysupgrade is unable to resize partitons. Any required packages can be installed later.
+Just in case, I still made sure to compile an image of OpenWrt, that fits into the factory partition. AFAIK, sysupgrade is unable to resize partitons. Any required packages can be installed later.
 
 
 # Original readme
