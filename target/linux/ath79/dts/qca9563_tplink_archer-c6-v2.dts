@@ -81,6 +81,23 @@
 			debounce-interval = <60>;
 		};
 	};
+
+	virtual_flash {
+		compatible = "mtd-concat";
+		devices = <&fwconcat0 &fwconcat1>;
+
+		partitions {
+			compatible = "fixed-partitions";
+			#address-cells = <1>;
+			#size-cells = <1>;
+
+			partition@0 {
+				label = "firmware";
+				reg = <0x0 0xf80000>;
+				compatible = "denx,uimage";
+			};
+		};
+	};
 };
 
 &pcie {
@@ -130,9 +147,8 @@
 				};
 			};
 
-			partition@30000 {
-				compatible = "denx,uimage";
-				label = "firmware";
+			fwconcat0: partition@30000 {
+				label = "fwconcat0";
 				reg = <0x030000 0x7a0000>;
 			};
 
@@ -160,6 +176,11 @@
 						reg = <0x5000 0x2f20>;
 					};
 				};
+			};
+
+			fwconcat1: partition@810000 {
+				label = "fwconcat1";
+				reg = <0x810000 0x7e0000>;
 			};
 		};
 	};
